@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import  { useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+const tasbih = require('./img/tasbeh.png')
 
-function App() {
+export default function App() {
+  const [count, setCount] = useState(0);
+
+    if(count > 100){
+      setCount(0)
+    }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+<>
+    <Container>
+      <Row>
+        <Col xs={4}>  
 
-export default App;
+      <img className='img' src={tasbih} alt=''/>;
+
+        
+        <div>
+           <p className='pi'> {count}</p>
+              <button className='buton' onClick={() => setCount(count + 1)}>
+                 Count
+              </button>
+  
+        </div>
+        </Col>
+      </Row>
+    </Container>
+</>
+    )
+}
